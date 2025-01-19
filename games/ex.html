@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النظام الشمسي التفاعلي</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+        
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .solar-system {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            z-index: 3;
+        }
+        
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+        
+        .planet:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+        
+        #space-station {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 4;
+        }
+
+        #question-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #4CAF50;
+            z-index: 1000;
+            min-width: 300px;
+            max-width: 600px;
+            display: none;
+        }
+
+        .answer-option {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .answer-option:hover {
+            background: #45a049;
+        }
+
+        .answer-option.selected {
+            background: #FFA500;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+    <canvas id="particleCanvas"></canvas>
+    <div id="solar-system" class="solar-system">
+        <div id="space-station"></div>
+    
+    </div>
+    <div id="question-box"></div>
+
+    <script src="ex.js"></script>
+</body>
+</html>
